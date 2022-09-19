@@ -16,18 +16,12 @@ $(window).ready(function () {
 
       // too check the time and chnges the classes for the background
 
-      if (blockTime < timeNow) {
-        $(this).removeClass("future");
-        $(this).removeClass("present");
-        $(this).addClass("past");
-      } else if (blockTime === timeNow) {
-        $(this).removeClass("past");
-        $(this).removeClass("future");
-        $(this).addClass("present");
+      if (timeNow > blockTime) {
+        $(this).css({ "background-color": "#d3d3d3" });
+      } else if (timeNow < blockTime) {
+        $(this).css({ "background-color": "#77dd77" });
       } else {
-        $(this).removeClass("present");
-        $(this).removeClass("past");
-        $(this).addClass("future");
+        $(this).css({ "background-color": "#ff6961" });
       }
     });
   }
